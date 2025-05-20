@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configura tu Vela - Velas Zen</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        header {
+            padding: 1rem 5%;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .logo img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .search-bar {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            max-width: 600px;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 0.5rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .icon {
+            width: 35px;
+            height: 35px;
+            cursor: pointer;
+            transition: transform 0.3s ease; 
+        }
+        .icon:hover {
+            transform: scale(1.4);
+        }
+
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .configurator {
+            display: flex;
+            padding: 2rem 5%;
+            gap: 4rem;
+        }
+
+        .options {
+            flex: 1;
+        }
+
+        .preview {
+            flex: 1;
+            text-align: center;
+        }
+
+        .option-group {
+            color: rgb(186, 117, 117);
+            font-weight: bold;
+            margin-bottom: 2rem;
+            
+        }
+
+        .option-group select {
+            width: 100%;
+            padding: 0.8rem;
+            margin-top: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .carousel {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .carousel-item {
+            width: 80px;
+            height: 80px;
+            background: #f0f0f0;
+            border: 1px solid #ddd;
+        }
+
+        .preview p {
+            color: rgb(186, 117, 117);
+        }
+        .preview-image {
+            width: 300px;
+            height: 300px;
+            background: #f0f0f0;
+            margin: 0 auto 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .preview-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        .quantity {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            justify-content: center;
+            margin: 1rem 0;
+        }
+
+        .quantity button {
+            padding: 0.5rem 1rem;
+            border: 1px solid #ddd;
+            background: none;
+            cursor: pointer;
+        }
+
+        .start-order {
+            background: #6c5ce7;
+            color: white;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .social-links {
+            text-align: center;
+            padding: 2rem 0;
+        }
+        #tituloRedesSociales {
+            margin-bottom: 1.5rem;
+            color: rgb(186, 117, 117);
+            font-weight: bold;
+        }   
+
+        .social-links img {
+            width: 24px;
+            height: 24px;
+            margin: 0 0.5rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 2rem;  /* Increased spacing between image and title */
+            font-size: 1.5rem;
+            justify-content: center;  /* Centers items horizontally */
+        }
+
+        .logo h1 {
+            font-size: 2rem;
+            color: rgb(186, 117, 117);
+            margin: 0;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid #333;
+            color: #333;
+        }        
+
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            padding: 2rem 10%;  /* Espacio a ambos lados (Izquierda y Derecha) */
+            background: #f5f5f5;
+            color: white;
+
+        }
+
+        .footer-column {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;  /* Seperacion Verticalmente */
+        }
+
+        .footer-column a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .footer-column a:hover {
+            color: blue;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+
+
+
+        @media (max-width: 700px) {
+        .header-top {
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .search-bar {
+            width: 100%;
+            margin: 0;
+        }
+
+        .configurator {
+            flex-direction: column;
+            padding: 1rem;
+            gap: 2rem;
+        }
+
+        .preview-image {
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .footer {
+            flex-direction: column;
+            text-align: center;
+            padding: 2rem 5%;
+        }
+
+        .footer-column {
+            margin-bottom: 1rem;
+        }
+
+        
+    }
+
+    @media (max-width: 480px) {
+        header {
+            padding: 1rem;
+        }
+
+        .logo {
+            flex-direction: column;
+            text-align: center;
+            gap: 0.5rem;
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+        }
+
+        .nav-icons {
+            justify-content: center;
+            width: 100%;
+        }
+
+        .carousel {
+            overflow-x: auto;
+            padding: 0.5rem;
+        }
+
+        .carousel button {
+            display: none;
+        }
+
+        .social-links img {
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="logo">
+                <img src="./icono/icono_VZ.png" alt="Velas Zen - Logo">
+                <h1>Configura tu Vela</h1>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar">
+                <div class="nav-icons">
+                    <a href="carrito.html"><img src="./icono/carrito.png" alt="Carrito" class="icon"></a>
+                    <a href="login.html"><img src="./icono/usuario.png" alt="Usuario" class="icon"></a>
+                    <a href="javascript: history.go(-1)"><img src="./icono/home.png" alt="Inicio" class="icon"></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="configurator">
+            <div class="options">
+                <div class="option-group">
+                    <label>Esencia</label>
+                    <select>
+                        <option>Seleccionar esencia</option>
+                        <option>Lavanda</option>
+                        <option>Vainilla</option>
+                        <option>Sándalo</option>
+                    </select>
+                </div>
+
+                <div class="option-group">
+                    <label>Color</label>
+                    <select>
+                        <option>Seleccionar color</option>
+                        <option>Blanco</option>
+                        <option>Rosa</option>
+                        <option>Azul</option>
+                    </select>
+                </div>
+
+                <div class="option-group">
+                    <label>Envase</label>
+                    <div class="carousel">
+                        <button>←</button>
+                        <div class="carousel-item"></div>
+                        <div class="carousel-item"></div>
+                        <div class="carousel-item"></div>
+                        <div class="carousel-item"></div>
+                        <div class="carousel-item"></div>
+                        <button>→</button>
+                    </div>
+                </div>
+
+                <div class="option-group">
+                    <label>Decoración interior</label>
+                    <div class="carousel">
+                        <button>←</button>
+                        <div class="carousel-item"></div>
+                        <div class="carousel-item"></div>
+                        <div class="carousel-item"></div>
+                        <div class="carousel-item"></div>
+                        <div class="carousel-item"></div>
+                        <button>→</button>
+                    </div>
+                </div>
+
+                <div class="option-group">
+                    <label>Decoración exterior</label>
+                    <div class="carousel">
+                        <button>←</button>
+                        <div class="carousel-item"></div>
+                        <div class="carousel-item"></div>
+                        <div class="carousel-item"></div>
+                        <div class="carousel-item"></div>
+                        <div class="carousel-item"></div>
+                        <button>→</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="preview">
+                <div class="preview-image">
+                    <img src="./img/imagen01.png" alt="">
+                </div>
+                <p>Nombre: $0.00</p>
+                <p>Tiempo de elaboración: 3 días</p>
+                <div class="quantity">
+                    <button>-</button>
+                    <span>1</span>
+                    <button>+</button>
+                </div>
+                <button class="start-order">Iniciar pedido</button>
+            </div>
+        </div>
+
+        <div class="social-links copyright">
+            <p id="tituloRedesSociales">Síguenos en</p>
+            <a href="#"><img src="./icono/facebook.png" alt="Facebook"></a>
+            <a href="#"><img src="./icono/X.png" alt="Twitter"></a>
+            <a href="#"><img src="./icono/instagram.png" alt="Instagram"></a>
+            <a href="#"><img src="./icono/tik-tok.png" alt="X"></a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-column">
+            <a href="contacto.html">Contáctanos</a>
+            <a href="politica_envio.html">Política de envíos</a>
+            <a href="devoluciones.html">Política de devoluciones</a>
+        </div>
+        <div class="footer-column">
+            <a href="terminos_condiciones.html">Términos y condiciones</a>
+            <a href="politica_privacidad.html">Política de privacidad</a>
+            <a href="faq.html">Preguntas frecuentes</a>
+        </div>
+    </footer>
+</body>
+</html>

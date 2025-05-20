@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito - Velas Zen</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        header {
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.5rem;
+            text-decoration: none;
+            color: #333;
+        }
+        .logo span {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: rgb(186, 117, 117);            
+        }
+
+        .logo img {
+            width:  60px;
+            height: 60px;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 1rem;
+        }
+        .nav-icons .icon {
+            transition: transform 0.3s ease;
+        }
+
+        .nav-icons .icon:hover {
+            transform: scale(1.4);
+        }
+
+        .icon {
+            width: 25px;
+            height: 25px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        .miCarrito {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .miCarrito .icon {
+            width: 30px;
+            height: 30px;
+            transition: transform 0.3s ease;            
+        }
+
+        /* Estilos para el carrito. Bajar ligeramente el titulo "Mi carrito" */
+        .miCarrito h2 {
+            margin: 1.4rem 0 0 0;
+            line-height: 30px;
+        }
+
+        .cart-section h2 {
+            margin-bottom: 0;
+        }
+
+
+        .cart-section h2, .summary-section h2 {
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            color: rgb(186, 117, 117);
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            border: 1px solid #eee;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            color: rgb(186, 117, 117);
+        }
+
+        .cart-item img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            margin-right: 1rem;
+        }
+
+        .item-details {
+            flex-grow: 1;
+        }
+
+        .item-details h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0.5rem 0;
+        }
+
+        .quantity-controls button {
+            padding: 0.25rem 0.5rem;
+            border: 1px solid #ddd;
+            background: none;
+            cursor: pointer;
+        }
+
+        .remove-item {
+            color: #666;
+            text-decoration: underline;
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-size: 0.9rem;
+        }
+
+        .summary-section {
+            background: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 8px;
+            height: fit-content;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #eee;
+            color: rgb(186, 117, 117);                        
+        }
+
+        .coupon-input {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .postal-code {
+            width: 100%;
+            padding: 0.5rem;
+            margin: 1rem 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .checkout-button {
+            width: 100%;
+            padding: 1rem;
+            background: #6c5ce7;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .checkout-button:hover {
+            background: #5b4bc4;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            padding: 2rem 10%;  /* Espacio a ambos lados (Izquierda y Derecha) */
+            background: #f5f5f5;
+        }
+
+        .footer-column {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;  /* Seperacion Verticalmente */
+        }
+
+        .footer-column a {
+            color: #333;
+            text-decoration: none;
+        }
+        .footer-column a:hover {
+            color: blue;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }        
+
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+                padding: 0 2rem;
+            }
+
+            .cart-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .item-details {
+                margin: 1rem 0;
+            }
+
+            .price {
+                margin-top: 1rem;
+            }
+
+            .footer {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 2rem;
+                padding: 2rem 5%;
+            }
+
+            .logo span {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem 2%;
+            }
+
+            .logo {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .container {
+                padding: 0 1rem;
+                margin: 1rem auto;
+            }
+
+            .cart-item img {
+                width: 80px;
+                height: 80px;
+            }
+        }        
+
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">
+            <img src="./icono/icono_VZ.png" alt="Velas Zen">
+            <span>Velas aromáticas artesanales</span>
+        </a>
+                <div class="nav-icons">                   
+                    <a href="login.html"><img src="./icono/usuario.png" alt="Usuario" class="icon"></a>
+                    <a href="javascript: history.go(-1)"><img src="./icono/home.png" alt="Inicio" class="icon"></a>
+                </div>
+    </header>
+
+    <div class="container">
+        <section class="cart-section">
+            <div class="miCarrito">
+                <img src="./icono/carrito.png" alt="Carrito" class="icon">
+                <h2>Mi carrito</h2>
+            </div>
+
+
+            <div class="cart-item">
+                <img src="./img/imagen02.png" alt="Vela tarro vidrio café">
+                <div class="item-details">
+                    <h3>Vela tarro vidrio café Vanilla</h3>
+                    <p>Disponible</p>
+                    <div class="quantity-controls">
+                        <button>-</button>
+                        <span>1</span>
+                        <button>+</button>
+                    </div>
+                    <button class="remove-item">Eliminar</button>
+                </div>
+                <div class="price">$199.00</div>
+            </div>
+
+            <div class="cart-item">
+                <img src="./img/imagen01.png" alt="Vela lata negra">
+                <div class="item-details">
+                    <h3>Vela lata negra Musk</h3>
+                    <p>Disponible</p>
+                    <div class="quantity-controls">
+                        <button>-</button>
+                        <span>1</span>
+                        <button>+</button>
+                    </div>
+                    <button class="remove-item">Eliminar</button>
+                </div>
+                <div class="price">$149.00</div>
+            </div>
+        </section>
+
+        <section class="summary-section">
+            <h2>Resumen</h2>
+            <div class="summary-item">
+                <span>Subtotal</span>
+                <span>$199.00</span>
+            </div>
+            <div class="summary-item">
+                <span>Impuestos</span>
+                <span>$0.00</span>
+            </div>
+            <input type="text" class="coupon-input" placeholder="Cupón de descuento">
+            <input type="text" class="postal-code" placeholder="Código Postal">
+            <div class="summary-item">
+                <span>Gastos envío</span>
+                <span>$0.00</span>
+            </div>
+            <div class="summary-item">
+                <strong>Total</strong>
+                <strong>$199.00</strong>
+            </div>
+            <button class="checkout-button">Ir a pagar</button>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-column">
+            <a href="contacto.html">Contáctanos</a>
+            <a href="politica_envio.html">Política de envíos</a>
+            <a href="devoluciones.html">Política de devoluciones</a>
+        </div>
+        <div class="footer-column">
+            <a href="terminos_condiciones.html">Términos y condiciones</a>
+            <a href="politica_privacidad.html">Política de privacidad</a>
+            <a href="faq.html">Preguntas frecuentes</a>
+        </div>
+    </footer>
+</body>
+</html>

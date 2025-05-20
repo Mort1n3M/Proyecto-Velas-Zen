@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terminos y condiciones - Velas Zen</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            display: flex;
+            min-height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+        .login-container {
+            display: flex;
+            width: 100%;
+        }
+
+        .brand-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            padding: 2rem;
+            background-image: url('./img/imagen15.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+
+        /* Add this new style for the overlay */
+        .brand-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.8); /* White with 80% opacity */
+            z-index: 1;
+        }
+
+        /* Adjust the logo and text to appear above the overlay */
+        .brand-section img,
+        .brand-section h1 {
+            color: rgb(186, 117, 117);
+            position: relative;
+            z-index: 2;
+        }
+
+
+        .form-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 2rem;
+            background-color: white;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #textoCentrado {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.5;
+            display: block;
+            text-align: justify;
+            padding-bottom: 2rem;
+        }
+
+        
+        .form-section h1, h2{
+            margin-bottom: 1.5rem;
+            color: rgb(186, 117, 117);
+        }
+        .form-section p {
+            font-style: italic;
+            margin-bottom: 1rem;
+            color: rgb(186, 117, 117);
+            margin-bottom: 4rem;
+            
+        }   
+
+        
+        .home-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 3;
+        }
+
+        .home-icon img {
+            width: 30px;
+            height: 30px;
+            transition: transform 0.3s ease;
+        }
+        .home-icon img:hover {
+            transform: scale(1.4);
+        }
+
+
+        .copyright {
+            text-align: center;
+            padding-top: .5rem;
+            margin-top: .5rem;
+            border-top: 1px solid #333;
+            color: #333;
+        }
+
+
+        @media screen and (max-width: 768px) {
+    .login-container {
+        flex-direction: column;
+    }
+
+    .brand-section {
+        min-height: 200px;
+    }
+
+    .form-section {
+        padding: 1rem;
+    }
+
+    #textoCentrado {
+        font-size: 0.9rem;
+        padding-bottom: 1.5rem;
+    }
+
+    .form-section h1 {
+        font-size: 1.5rem;
+    }
+
+    .form-section h2 {
+        font-size: 1.3rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .brand-section h1 {
+        font-size: 1.2rem;
+        text-align: center;
+    }
+
+    .brand-section img {
+        width: 80%;
+        max-width: 200px;
+    }
+}        
+
+
+    </style>
+</head>
+<body>
+    <a href="javascript: history.go(-1)" class="home-icon">
+        <img src="./icono/home.png" alt="Home">
+    </a>
+    <div class="login-container">
+        <div class="brand-section">
+            <img src="./icono/icono_VZ.png" alt="Velas Zen Logo">
+            <h1>Velas aromáticas artesanales</h1>
+        </div>
+        <div class="form-section">
+            <h1>Tus compras más fáciles</h1>
+            <h2>Terminos y condiciones</h2>
+            <span id="textoCentrado" class="copyright">           
+                <b>1. Aceptación de los Términos y Condiciones: </b>
+                    Al acceder o realizar una compra en "Velas Zen - Velas Aromáticas Artesanales", ya sea a través de nuestra página web, redes sociales o puntos de venta físicos, el cliente acepta automáticamente los presentes términos y condiciones en su totalidad. Si no está de acuerdo con alguno de ellos, le rogamos se abstenga de utilizar nuestros servicios o adquirir nuestros productos.
+            </span> 
+
+
+            <span id="textoCentrado" class="copyright">
+                <b>2. Características del Producto: </b>
+                    Todos los productos ofrecidos por "Velas Zen" son elaborados artesanalmente con materiales de alta calidad. Las velas pueden presentar variaciones mínimas en color, textura o aroma debido a su proceso de fabricación natural. Nos comprometemos a describir con la mayor exactitud posible las características de cada producto; sin embargo, algunas imágenes e información pueden variar ligeramente de la realidad.
+            </span>
+            
+            <span  id="textoCentrado" class="copyright">              
+                <b>3. Precios y Promociones: </b>
+                    Los precios publicados en nuestros canales oficiales incluyen todos los impuestos aplicables según la legislación vigente. Las promociones, descuentos o cupones tienen validez únicamente durante el periodo especificado y no son acumulables entre sí, salvo que se indique expresamente. Velas Zen se reserva el derecho de modificar precios y condiciones sin previo aviso.
+            </span>
+
+            <span  id="textoCentrado" class="copyright"> 
+                <b>4. Políticas de Envío y Entrega: </b>
+                    Los envíos se realizan dentro del territorio nacional, pudiendo ampliarse a otros países según las opciones disponibles al momento de la compra. El tiempo de entrega dependerá del destino y del método de envío seleccionado. "Velas Zen" no se hace responsable por retrasos ocasionados por terceros encargados del transporte. En caso de recibir un paquete dañado, debe notificarse dentro de las 24 horas posteriores a la recepción.
+            </span>
+            
+            <span  id="textoCentrado" class="copyright"> 
+                <b>5. Devoluciones y Reembolsos: </b>
+                    Solo se aceptarán devoluciones por productos defectuosos o dañados durante el envío. Para iniciar un proceso de devolución, es necesario contactar a nuestro servicio al cliente dentro de los 7 días hábiles siguientes a la recepción del pedido. No se aceptan cambios ni devoluciones por decisión personal del cliente si el producto no presenta fallas. Los reembolsos se procesan tras confirmar la incidencia y recibir el producto devuelto.
+            </span>
+
+            <span  id="textoCentrado" class="copyright">              
+                <b>6. Uso Adecuado y Responsabilidad: </b>
+                    Las velas aromáticas de "Velas Zen" deben usarse bajo supervisión y siguiendo las instrucciones de seguridad proporcionadas. No nos hacemos responsables por mal uso del producto, accidentes derivados de negligencia o incumplimiento de las normas de seguridad básicas. Al comprar nuestros productos, el cliente reconoce tener conocimiento del uso adecuado de las velas y asume cualquier riesgo asociado a su manejo incorrecto.
+            </span>
+
+        </div>
+    </div>
+</body>
+</html>

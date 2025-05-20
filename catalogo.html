@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo - Velas Zen</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        header {
+            padding: 1rem 5%;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: flex-start;
+            position: fixed;  /* Add this */
+            top: 0;          /* Add this */
+            left: 0;         /* Add this */
+            right: 0;        /* Add this */
+            background: white; /* Add this */
+            z-index: 100;    /* Add this */
+        }
+
+
+        .filter-bar {
+            position: fixed;  /* Change from top to position */
+            top: 120px;      /* Adjust this value based on your header height */
+            left: 0;
+            right: 0;
+            background: white;
+            padding: 1rem 5%;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            border-bottom: 1px solid #eee;
+            z-index: 100;    /* Add this */
+        }
+
+        main {
+            padding-top: 180px; /* Adjust this value to account for both header and filter-bar height */
+        }
+
+
+        .product-count {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .filter-button {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background: white;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .filter-button:hover {
+            background: #f5f5f5;
+        }
+
+        .filter-icon {
+            width: 16px;
+            height: 16px;
+        }
+
+        .sort-container {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .sort-select {
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background: white;
+        }
+        
+     
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .logo img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .search-bar {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            max-width: 600px;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 0.5rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .icon {
+            width: 35px;
+            height: 35px;
+            cursor: pointer;
+            transition: transform 0.3s ease; 
+        }
+        .icon:hover {
+            transform: scale(1.4);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .configurator {
+            display: flex;
+            padding: 2rem 5%;
+            gap: 4rem;
+        }
+
+        .options {
+            flex: 1;
+        }
+
+        .preview {
+            flex: 1;
+            text-align: center;
+        }
+
+        .option-group {
+            color: rgb(186, 117, 117);
+            font-weight: bold;
+            margin-bottom: 2rem;
+            
+        }
+
+        .option-group select {
+            width: 100%;
+            padding: 0.8rem;
+            margin-top: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .carousel {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .carousel-item {
+            width: 80px;
+            height: 80px;
+            background: #f0f0f0;
+            border: 1px solid #ddd;
+        }
+
+        .preview p {
+            color: rgb(186, 117, 117);
+        }
+        .preview-image {
+            width: 300px;
+            height: 300px;
+            background: #f0f0f0;
+            margin: 0 auto 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .preview-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        .quantity {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            justify-content: center;
+            margin: 1rem 0;
+        }
+
+        .quantity button {
+            padding: 0.5rem 1rem;
+            border: 1px solid #ddd;
+            background: none;
+            cursor: pointer;
+        }
+
+        .start-order {
+            background: #6c5ce7;
+            color: white;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .social-links {
+            text-align: center;
+            padding: 2rem 0;
+        }
+        #tituloRedesSociales {
+            margin-bottom: 1.5rem;
+            color: rgb(186, 117, 117);
+            font-weight: bold;
+        }   
+
+        .social-links img {
+            width: 24px;
+            height: 24px;
+            margin: 0 0.5rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 2rem;  /* Increased spacing between image and title */
+            font-size: 1.5rem;
+            justify-content: center;  /* Centers items horizontally */
+        }
+
+        .logo h1 {
+            font-size: 2rem;
+            color: rgb(186, 117, 117);
+            margin: 0;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid #333;
+            color: #333;
+        }        
+
+        .catalog-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 2rem;
+                padding: 2rem 5%;
+            }
+
+            .product-card {
+                background: white;
+                border-radius: 8px;
+                padding: 1rem;
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                transition: transform 0.2s ease;
+            }
+
+            .product-card:hover {
+                transform: translateY(-5px);
+            }
+
+            .product-image {
+                width: 100%;
+                aspect-ratio: 1;
+                object-fit: cover;
+                border-radius: 4px;
+            }
+
+            .product-info {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .product-name {
+                font-size: 1.1rem;
+                color: rgb(186, 117, 117);
+                margin: 0;
+            }
+
+            .product-price {
+                font-weight: bold;
+                color: #333;
+            }
+
+            .add-to-cart {
+                background: rgb(186, 117, 117);
+                color: white;
+                border: none;
+                padding: 0.8rem;
+                border-radius: 4px;
+                cursor: pointer;
+                transition: background 0.2s ease;
+            }
+
+            .add-to-cart:hover {
+                background: rgb(166, 97, 97);
+            }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            padding: 2rem 10%;  /* Espacio a ambos lados (Izquierda y Derecha) */
+            background: #f5f5f5;
+            color: white;
+
+        }
+
+        .footer-column {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;  /* Seperacion Verticalmente */
+        }
+
+        .footer-column a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .footer-column a:hover {
+            color: blue;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+
+
+
+        @media (max-width: 700px) {
+        .header-top {
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .search-bar {
+            width: 100%;
+            margin: 0;
+        }
+
+        .configurator {
+            flex-direction: column;
+            padding: 1rem;
+            gap: 2rem;
+        }
+
+        .preview-image {
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .footer {
+            flex-direction: column;
+            text-align: center;
+            padding: 2rem 5%;
+        }
+
+        .footer-column {
+            margin-bottom: 1rem;
+        }
+
+        
+    }
+
+    @media (max-width: 480px) {
+        header {
+            padding: 1rem;
+        }
+
+        .logo {
+            flex-direction: column;
+            text-align: center;
+            gap: 0.5rem;
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+        }
+
+        .nav-icons {
+            justify-content: center;
+            width: 100%;
+        }
+
+        .carousel {
+            overflow-x: auto;
+            padding: 0.5rem;
+        }
+
+        .carousel button {
+            display: none;
+        }
+
+        .social-links img {
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="logo">
+                <img src="./icono/icono_VZ.png" alt="Velas Zen - Logo">
+                <h1>Catálogo</h1>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar">
+                <div class="nav-icons">
+                    <a href="carrito.html"><img   src="./icono/carrito.png"  alt="Carrito" class="icon"></a>
+                    <a href="chat_bot.html"><img  src="./icono/chat-bot.png" alt="chatBot" class="icon"></a>                    
+                    <a href="login.html"><img     src="./icono/usuario.png"  alt="Usuario" class="icon"></a>
+                    <a href="javascript: history.go(-1)"><img src="./icono/home.png" alt="Inicio" class="icon"></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <div class="filter-bar">
+        <span class="product-count">20 productos</span>
+        <button class="filter-button">
+            <img src=".//icono/filtro.png" alt="Filtro" class="filter-icon">
+            Filtro
+        </button>
+        <div class="sort-container">
+            <label>Ordenar por:</label>
+            <select class="sort-select">
+                <option>Fecha: reciente a antiguo(a)</option>
+                <option>Fecha: antiguo(a) a reciente</option>
+                <option>Precio: menor a mayor</option>
+                <option>Precio: mayor a menor</option>
+            </select>
+        </div>
+    </div>
+    
+
+    <main>
+
+        <div class="catalog-grid">
+            <!-- Parte Uno -->
+            <div class="product-card">
+                <img src="./img/imagen01.png" alt="Lavanda" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-name">Lavanda</h3>
+                    <p class="product-price">$249.00</p>
+                    <button class="add-to-cart">Añadir al carrito</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="./img/imagen02.png" alt="Lluvia de Otoño" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-name">Lluvia de Otoño</h3>
+                    <p class="product-price">$209.00</p>
+                    <button class="add-to-cart">Añadir al carrito</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="./img/imagen03.png" alt="Vainilla Cálida" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-name">Vainilla Cálida</h3>
+                    <p class="product-price">$319.00</p>
+                    <button class="add-to-cart">Añadir al carrito</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="./img/imagen04.png" alt="Vela de Jazmín" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-name">Vela de Jazmín</h3>
+                    <p class="product-price">$259.00</p>
+                    <button class="add-to-cart">Añadir al carrito</button>
+                </div>
+            </div>
+
+            <!-- Parte 2-->
+            <div class="product-card">
+                <img src="./img/imagen05.png" alt="Eucalipto & Limón" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-name">Eucalipto & Limón</h3>
+                    <p class="product-price">$272.00</p>
+                    <button class="add-to-cart">Añadir al carrito</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="./img/imagen06.png" alt="Jazmín Nocturno" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-name">Jazmín Nocturno</h3>
+                    <p class="product-price">$209.00</p>
+                    <button class="add-to-cart">Añadir al carrito</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="./img/imagen07.png" alt="Madera de Sándalo" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-name">Madera de Sándalo</h3>
+                    <p class="product-price">$237.00</p>
+                    <button class="add-to-cart">Añadir al carrito</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="./img/imagen08.png" alt="Coco & Yang" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-name">Coco & Yang</h3>
+                    <p class="product-price">$238.00</p>
+                    <button class="add-to-cart">Añadir al carrito</button>
+                </div>
+            </div>
+
+
+            <!-- Parte tres -->
+            <div class="product-card">
+                <img src="./img/imagen09.png" alt="Canela en Rama" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-name">Canela en Rama</h3>
+                    <p class="product-price">$245.00</p>
+                    <button class="add-to-cart">Añadir al carrito</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="./img/imagen10.png" alt="Manzana con Canela" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-name">Manzana con Canela</h3>
+                    <p class="product-price">$229.00</p>
+                    <button class="add-to-cart">Añadir al carrito</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="./img/imagen11.png" alt="Sándalo" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-name">Sándalo</h3>
+                    <p class="product-price">$358.00</p>
+                    <button class="add-to-cart">Añadir al carrito</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="./img/imagen12.png" alt="Jazmín" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-name">Jazmín</h3>
+                    <p class="product-price">$394.00</p>
+                    <button class="add-to-cart">Añadir al carrito</button>
+                </div>
+            </div>
+
+
+            <!-- Parte cuatro -->            
+            <div class="product-card">
+                <img src="./img/imagen13.png" alt="Canela Tropical" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-name">Canela Tropical</h3>
+                    <p class="product-price">$206.00</p>
+                    <button class="add-to-cart">Añadir al carrito</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="./img/imagen14.png" alt="Ámbar Dorado" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-name">Ámbar Dorado</h3>
+                    <p class="product-price">$216.00</p>
+                    <button class="add-to-cart">Añadir al carrito</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="./img/imagen15.png" alt="Limón & Hierbabuena" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-name">Limón & Hierbabuena</h3>
+                    <p class="product-price">$205.00</p>
+                    <button class="add-to-cart">Añadir al carrito</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="./img/imagen16.png" alt="Miel & Almendras" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-name">Miel & Almendras</h3>
+                    <p class="product-price">$263.00</p>
+                    <button class="add-to-cart">Añadir al carrito</button>
+                </div>
+            </div>
+            
+            
+            
+            <!-- Parte cinco -->
+            <div class="product-card">
+                <img src="./img/imagen17.png" alt="Lluvia Cálida" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-name">Lluvia Cálida</h3>
+                    <p class="product-price">$230.00</p>
+                    <button class="add-to-cart">Añadir al carrito</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="./img/imagen18.png" alt="Mar & Madera" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-name">Mar & Madera</h3>
+                    <p class="product-price">$226.00</p>
+                    <button class="add-to-cart">Añadir al carrito</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="./img/imagen19.png" alt="Sándalo Provenzal" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-name">Sándalo Provenzal</h3>
+                    <p class="product-price">$384.00</p>
+                    <button class="add-to-cart">Añadir al carrito</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="./img/imagen20.png" alt="Jazmín de Primavera" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-name">Jazmín de Primavera</h3>
+                    <p class="product-price">$327.00</p>
+                    <button class="add-to-cart">Añadir al carrito</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="social-links copyright">
+            <p id="tituloRedesSociales">Síguenos en</p>
+            <a href="#"><img src="./icono/facebook.png" alt="Facebook"></a>
+            <a href="#"><img src="./icono/X.png" alt="Twitter"></a>
+            <a href="#"><img src="./icono/instagram.png" alt="Instagram"></a>
+            <a href="#"><img src="./icono/tik-tok.png" alt="X"></a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-column">
+            <a href="contacto.html">Contáctanos</a>
+            <a href="politica_envio.html">Política de envíos</a>
+            <a href="devoluciones.html">Política de devoluciones</a>
+        </div>
+        <div class="footer-column">
+            <a href="terminos_condiciones.html">Términos y condiciones</a>
+            <a href="politica_privacidad.html">Política de privacidad</a>
+            <a href="faq.html">Preguntas frecuentes</a>
+        </div>
+    </footer>
+</body>
+</html>

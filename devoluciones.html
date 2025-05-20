@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devoluciones - Velas Zen</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            display: flex;
+            min-height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+        .login-container {
+            display: flex;
+            width: 100%;
+        }
+
+        .brand-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            padding: 2rem;
+            background-image: url('./img/imagen16.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+
+        /* Add this new style for the overlay */
+        .brand-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.8); /* White with 80% opacity */
+            z-index: 1;
+        }
+
+        /* Adjust the logo and text to appear above the overlay */
+        .brand-section img,
+        .brand-section h1 {
+            color: rgb(186, 117, 117);
+            position: relative;
+            z-index: 2;
+        }
+
+
+        .form-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 2rem;
+            background-color: white;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #textoCentrado {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.5;
+            display: block;
+            text-align: justify;
+            padding-bottom: 2rem;
+        }
+
+        
+        .form-section h1, h2{
+            margin-bottom: 1.5rem;
+            color: rgb(186, 117, 117);
+        }
+        .form-section p {
+            font-style: italic;
+            margin-bottom: 1rem;
+            color: rgb(186, 117, 117);
+            margin-bottom: 4rem;
+            
+        }   
+
+        
+        .home-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 3;
+        }
+
+        .home-icon img {
+            width: 30px;
+            height: 30px;
+            transition: transform 0.3s ease;  
+        }
+        .home-icon img:hover {
+            transform: scale(1.4);
+        }
+
+
+
+
+        @media screen and (max-width: 768px) {
+    .login-container {
+        flex-direction: column;
+    }
+
+    .brand-section {
+        min-height: 200px;
+    }
+
+    .form-section {
+        padding: 1rem;
+    }
+
+    #textoCentrado {
+        font-size: 0.9rem;
+        padding-bottom: 1.5rem;
+    }
+
+    .form-section h1 {
+        font-size: 1.5rem;
+    }
+
+    .form-section h2 {
+        font-size: 1.3rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .brand-section h1 {
+        font-size: 1.2rem;
+        text-align: center;
+    }
+
+    .brand-section img {
+        width: 80%;
+        max-width: 200px;
+    }
+}        
+
+
+    </style>
+</head>
+<body>
+    <a href="javascript: history.go(-1)" class="home-icon">
+        <img src="./icono/home.png" alt="Home">
+    </a>
+    <div class="login-container">
+        <div class="brand-section">
+            <img src="./icono/icono_VZ.png" alt="Velas Zen Logo">
+            <h1>Velas aromáticas artesanales</h1>
+        </div>
+        <div class="form-section">
+            <h1>Tus compras más fáciles</h1>
+            <h2>Políticas de Devoluciones</h2>
+            <span id="textoCentrado">           
+                En Velas Zen  queremos que estés completamente satisfecho con tu compra. Si por alguna razón no quedas conforme con tu producto, aceptamos devoluciones dentro de los primeros 7 días naturales posteriores a la recepción del paquete. Para ser elegible, el producto debe estar sin usar, en su empaque original y en perfecto estado. Al tratarse de productos artesanales y de uso personal, no se aceptan devoluciones después del plazo establecido ni productos que presenten señales de haber sido utilizados.
+            </span>
+
+            <span id="textoCentrado">           
+                Para iniciar una devolución, deberás contactarnos a través de nuestro correo <b>servicioalcliente@velaszen.com</b>  adjuntando fotografías del producto y tu número de orden. Una vez aprobada la devolución, deberás entregar el paquete en un punto de recolección autorizado por la paquetería que indiquemos. Los gastos de envío de la devolución correrán por cuenta del cliente, salvo en casos de errores en el pedido o productos dañados durante el envío, en cuyo caso cubriremos los costos previa validación.
+            </span>
+            
+            <span id="textoCentrado">
+                Una vez recibido y verificado el estado del producto en nuestro taller, procesaremos el reembolso del importe pagado en un plazo máximo de 5 días hábiles. El reembolso se realizará a través del mismo método de pago utilizado en la compra. En caso de productos defectuosos o equivocados, ofrecemos la opción de reembolso completo o cambio por otro producto de igual valor. En Velas Zen , nos comprometemos a brindarte una experiencia transparente y satisfactoria en cada detalle de tu compra. 
+            </span>
+
+        </div>
+    </div>
+</body>
+</html>

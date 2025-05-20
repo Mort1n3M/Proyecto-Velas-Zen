@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatBot - Velas Zen</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+            overflow-x: hidden;            
+        }
+
+        body {
+            display: flex;
+            background-color: #f5f5f5;
+            min-height: 100vh;            
+        }
+
+        .login-container {
+            display: flex;
+            width: 100%;
+        }
+
+        .brand-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            padding: 2rem;
+            background-image: url('./img/imagen16.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+
+        /* Add this new style for the overlay */
+        .brand-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.8); /* White with 80% opacity */
+            z-index: 1;
+        }
+
+        /* Adjust the logo and text to appear above the overlay */
+        .brand-section img,
+        .brand-section h1 {
+            color: rgb(186, 117, 117);
+            position: relative;
+            z-index: 2;
+        }
+
+
+
+        .form-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 2rem;
+            background-color: white;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: rgb(186, 117, 117);
+        }
+        .form-section p {
+            color: rgb(186, 117, 117);
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        #userInput {
+            flex: 1;
+            padding: 0.8rem;
+            border: 1px solid #ddd; border-radius: 4px;
+            font-size: 1rem;
+        }
+
+
+        .login-button {
+            background-image: url('./icono/enviar-chatbot.png');
+            width: 40px;
+            height: 40px;
+            background-color: rgb(186, 117, 117);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            transition: transform 0.3s ease;
+        }
+        
+        .login-button:hover {
+            transform: scale(1.1);
+        }
+
+
+
+        /* Add this new style */
+        .home-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 3;               
+        }
+
+        .home-icon img {
+            width: 30px;
+            height: 30px;
+            transition: transform 0.3s ease;            
+        }
+
+        .home-icon img:hover {
+            transform: scale(1.4);
+        }
+
+
+        .chat-container {
+            scrollbar-width: thin;
+            scrollbar-color: #ddd #fff;
+            height: 400px; 
+            border: 1px solid #ddd; 
+            border-radius: 8px; 
+            overflow-y: auto; 
+            padding: 1rem; 
+            margin-bottom: 1rem; 
+            background-color: #fff;
+        }
+
+        .chat-container::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .chat-container::-webkit-scrollbar-track {
+            background: #fff;
+        }
+
+        .chat-container::-webkit-scrollbar-thumb {
+            background-color: #ddd;
+            border-radius: 3px;
+        }
+
+        .chat-messages {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .input-container {
+            display: flex; 
+            gap: 0.5rem;
+        }
+
+        .message {
+            margin-bottom: 1rem;
+            padding: 0.8rem;
+            border-radius: 8px;
+            max-width: 80%;
+        }
+
+        .message.bot {
+            background-color: #f5f5f5;
+            margin-right: auto;
+        }
+
+        .message.user {
+            background-color: rgb(186, 117, 117);
+            color: white;
+            margin-left: auto;
+        }
+
+        .message p {
+            margin: 0;
+            color: inherit;
+        }
+        #imgChatBot img {
+            width: 50px;
+            height: 50px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .login-container {
+                flex-direction: column;
+            }
+
+            .brand-section {
+                min-height: 30vh;
+            }
+
+            .form-section {
+                padding: 2rem 1rem;
+            }
+
+            .brand-section h1 {
+                font-size: 1.5rem;
+                text-align: center;
+            }
+
+            .brand-section img {
+                max-width: 80%;
+                height: auto;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .form-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .brand-section h1 {
+                font-size: 1.2rem;
+            }
+
+
+
+        }        
+
+
+    </style>
+</head>
+<body>
+    <a href="javascript: history.go(-1)" class="home-icon">
+        <img src="./icono/home.png" alt="Home">
+    </a>
+    <div class="login-container">
+        <div class="brand-section">
+            <img src="./icono/icono_VZ.png" alt="Velas Zen Logo">
+            <h1>Velas aromáticas artesanales</h1>
+        </div>
+        <div class="form-section">
+            <form>
+                <div class="chat-container">
+                    <div class="chat-messages">
+                            <div id="imgChatBot">
+                                <img src="./icono/chat-bot.png" alt="">
+                            </div>
+                            <div class="message bot">
+                                <p>¡Hola! Soy el asistente virtual de Velas Zen. ¿En qué puedo ayudarte hoy?</p>
+                            </div>
+                    </div>
+                </div>
+                <div class="input-container">
+                    <input type="text" id="userInput" placeholder="Escribe tu mensaje aquí...">
+                    <button type="submit" class="login-button"></button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</body>
+<script>
+    // Poner el cursor en el input, se carga la página
+    window.onload = function() {
+        document.getElementById('userInput').focus();
+    };
+</script>
+</html>

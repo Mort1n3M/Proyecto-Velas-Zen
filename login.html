@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - Velas Zen</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+            overflow-x: hidden;            
+        }
+
+        body {
+            display: flex;
+            min-height: 100vh;
+            background-color: #f5f5f5;
+            min-height: 100vh;            
+        }
+
+        .login-container {
+            display: flex;
+            width: 100%;
+        }
+
+        .brand-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            padding: 2rem;
+            background-image: url('./img/imagen17.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+
+        /* Add this new style for the overlay */
+        .brand-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.8); /* White with 80% opacity */
+            z-index: 1;
+        }
+
+        /* Adjust the logo and text to appear above the overlay */
+        .brand-section img,
+        .brand-section h1 {
+            color: rgb(186, 117, 117);
+            position: relative;
+            z-index: 2;
+        }
+
+
+
+        .form-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 2rem;
+            background-color: white;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: rgb(186, 117, 117);
+        }
+        .form-section p {
+            color: rgb(186, 117, 117);
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .login-button {
+            width: 100%;
+            padding: 0.8rem;
+            background-color: #6c5ce7;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-bottom: 1rem;
+        }
+
+        .login-button:hover {
+            background-color: #5b4bc4;
+        }
+
+        .forgot-password {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .forgot-password a {
+            color: #666;
+            text-decoration: none;
+        }
+
+        .social-login {
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .social-login img {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Add this new style */
+        .home-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 3;               
+        }
+
+        .home-icon img {
+            width: 30px;
+            height: 30px;
+            transition: transform 0.3s ease;            
+        }
+
+        .home-icon img:hover {
+            transform: scale(1.4);
+        }
+
+        .google-login {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: white;
+            cursor: pointer;
+        }
+
+        .google-login img {
+            width: 20px;
+            height: 20px;
+        }
+
+
+        @media screen and (max-width: 768px) {
+            .login-container {
+                flex-direction: column;
+            }
+
+            .brand-section {
+                min-height: 30vh;
+            }
+
+            .form-section {
+                padding: 2rem 1rem;
+            }
+
+            .brand-section h1 {
+                font-size: 1.5rem;
+                text-align: center;
+            }
+
+            .brand-section img {
+                max-width: 80%;
+                height: auto;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .form-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .brand-section h1 {
+                font-size: 1.2rem;
+            }
+
+            .form-group input,
+            .login-button,
+            .google-login {
+                padding: 0.6rem;
+            }
+        }        
+
+    </style>
+</head>
+<body>
+    <a href="javascript: history.go(-1)" class="home-icon">
+        <img src="./icono/home.png" alt="Home">
+    </a>
+    <div class="login-container">
+        <div class="brand-section">
+            <img src="./icono/icono_VZ.png" alt="Velas Zen Logo">
+            <h1>Velas aromáticas artesanales</h1>
+        </div>
+        <div class="form-section">
+            <h2>Iniciar sesión</h2>
+            <p style="margin-bottom: 1rem;">Tus compras más fáciles</p>
+            <form>
+                <div class="form-group">
+                    <input type="text" placeholder="Usuario" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="Contraseña" required>
+                </div>
+                <button type="submit" class="login-button">Aceptar</button>
+                <div class="forgot-password">
+                    <a href="#">Olvidé mi contraseña</a>
+                </div>
+                <div class="social-login">
+                    <p style="margin-bottom: 1rem;">O si prefiere puede</p>
+                    <button type="button" class="google-login">
+                        <img src="./icono/gmail.png" alt="Google Icon">
+                        <span>Iniciar con Gmail</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

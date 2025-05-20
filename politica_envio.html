@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Envío - Velas Zen</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            display: flex;
+            min-height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+        .login-container {
+            display: flex;
+            width: 100%;
+        }
+
+        .brand-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            padding: 2rem;
+            background-image: url('./img/imagen17.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+
+        /* Add this new style for the overlay */
+        .brand-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.8); /* White with 80% opacity */
+            z-index: 1;
+        }
+
+        /* Adjust the logo and text to appear above the overlay */
+        .brand-section img,
+        .brand-section h1 {
+            color: rgb(186, 117, 117);
+            position: relative;
+            z-index: 2;
+        }
+
+
+        .form-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 2rem;
+            background-color: white;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #textoCentrado {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.5;
+            display: block;
+            text-align: justify;
+            padding-bottom: 2rem;
+        }
+
+        
+        .form-section h2 {
+            margin-bottom: 1.5rem;
+            color: rgb(186, 117, 117);
+        }
+        .form-section p {
+            color: rgb(186, 117, 117);
+            margin-bottom: 1rem;
+        }   
+
+        
+        .home-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 3;
+        }
+
+        .home-icon img {
+            width: 30px;
+            height: 30px;
+            transition: transform 0.3s ease;  
+        }
+        .home-icon img:hover {
+            transform: scale(1.4);
+        }
+
+
+
+@media screen and (max-width: 768px) {
+    .login-container {
+        flex-direction: column;
+    }
+
+    .brand-section {
+        min-height: 200px;
+    }
+
+    .form-section {
+        padding: 1rem;
+    }
+
+    #textoCentrado {
+        font-size: 0.9rem;
+        padding-bottom: 1.5rem;
+    }
+
+    .form-section h1 {
+        font-size: 1.5rem;
+    }
+
+    .form-section h2 {
+        font-size: 1.3rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .brand-section h1 {
+        font-size: 1.2rem;
+        text-align: center;
+    }
+
+    .brand-section img {
+        width: 80%;
+        max-width: 200px;
+    }
+}        
+
+    </style>
+</head>
+<body>
+    <a href="javascript: history.go(-1)" class="home-icon">
+        <img src="./icono/home.png" alt="Home">
+    </a>
+    <div class="login-container">
+        <div class="brand-section">
+            <img src="./icono/icono_VZ.png" alt="Velas Zen Logo">
+            <h1>Velas aromáticas artesanales</h1>
+        </div>
+        <div class="form-section">
+            <h2>Políticas de Envío</h2>
+            <p>Tus compras más fáciles</p>
+            <span id="textoCentrado">           
+                En **Velas Zen**, nos comprometemos a entregar nuestros productos de la manera más rápida, segura y sostenible posible. Todos nuestros pedidos se procesan en un plazo máximo de 1 a 3 días hábiles posteriores a la confirmación del pago. Trabajamos con mensajerías certificadas que garantizan la protección de cada vela durante todo el trayecto, para que lleguen a tu hogar o negocio en perfecto estado.
+                Ofrecemos envío gratuito en toda la República Mexicana en compras superiores a $599 MXN. Para pedidos menores a ese monto, se aplicará una tarifa fija de $99 MXN. En zonas remotas o difíciles de acceder, el costo del envío puede variar y será informado al cliente antes de confirmar el pedido. Nuestro objetivo es hacer accesibles nuestras velas aromáticas artesanales sin comprometer la calidad del servicio.
+                Los tiempos de entrega pueden variar dependiendo de la ubicación: en promedio, entre 3 y 7 días hábiles después del envío. 
+            </span>
+            <span id="textoCentrado">
+                Una vez que tu pedido haya sido despachado, recibirás un correo electrónico con los detalles del seguimiento para que puedas monitorear su trayectoria hasta tu puerta. Si por alguna razón surge un retraso o inconveniente, nos comunicaremos contigo inmediatamente para brindarte información actualizada.
+                Agradecemos tu confianza en **Velas Zen** y estamos siempre disponibles para resolver cualquier duda sobre nuestros envíos. Puedes contactarnos a través de nuestro correo hola@velaszen.com o en nuestra línea de atención al cliente al (55) 1234-5678. ¡Esperamos que disfrutes cada aroma y momento de paz que nuestras velas te brindan!                
+            </span>
+
+        </div>
+    </div>
+</body>
+</html>

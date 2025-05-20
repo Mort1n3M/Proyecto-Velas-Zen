@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velas Zen - Velas Aromáticas Artesanales</title>
+    <style>
+
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+
+        /* Ajustar el body para que el header no tape el contenido */
+        body {
+            padding-top: 180px; /* Ajustar el header */
+        }
+
+        /* Estilos para el header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: white;
+            padding: 2rem;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Estilos para el logo */
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        
+        .header-bottom {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            width: 100%;
+        }
+        
+        .search-bar {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            max-width: 600px;
+        }
+        .search-bar input {
+            width: 100%;
+            max-width: 600px;
+            padding: 0.5rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .logo img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .icon {
+            width:  35px;
+            height: 35px;
+            cursor: pointer;
+            transition: transform 0.3s ease;            
+        }
+        .icon:hover {
+            transform: scale(1.4);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            justify-content: flex-end;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            /* background: #333; */
+            background: rgb(186, 117, 117);
+            
+            left: 0;
+            bottom: 0;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: rgb(186, 117, 117);
+        }
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .hero {
+            background: #f5f5f5;
+            padding: 4rem 5%;
+            text-align: center;
+        }
+
+        .hero h1 {
+            color: rgb(186, 117, 117);
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            font-style: italic;
+            color: rgb(186, 117, 117);
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            background: #333;
+            color: white;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .collections {
+            padding: 4rem 5%;
+        }
+
+        .collections h2 {
+            color: rgb(186, 117, 117);
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .product {
+            text-align: center;
+            color: rgb(186, 117, 117);
+        }
+
+        .product img {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            margin-bottom: 1rem;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            padding: 4rem 5%;
+            background: #f9f9f9;
+            text-align: center;
+            color: rgb(186, 117, 117);
+            font-style: italic;            
+        }
+
+        .newsletter {
+            padding: 4rem 5%;
+            text-align: center;
+            color: rgb(186, 117, 117);
+        }
+
+        .newsletter form {
+            max-width: 500px;
+            margin: 2rem auto;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .newsletter input {
+            flex-grow: 1;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+        }
+
+        footer {
+            background: #f5f5f5;
+            color: white;
+            padding: 4rem 5%;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-content h3 {
+            margin-bottom: 1rem;
+        }
+
+        .footer-content ul {
+            list-style: none;
+        }
+
+        .footer-content a {
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            line-height: 1.8;
+        }
+        .footer-content a:hover {
+            font-size: 1.1rem;
+            text-decoration:underline;
+            color: rgb(92, 72, 72);                       
+
+        }
+        #sombraBlanca{
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: rgb(116, 72, 72);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
+                        0 0 20px rgba(255, 255, 255, 0.8),
+                        0 0 30px rgba(255, 255, 255, 0.6);            
+        }
+        .contacto {
+            color: black;
+        }
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid #333;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    
+    <header>
+        <div class="header-top">
+            <div class="logo">
+                <img src="./icono/icono_VZ.png" alt="Velas Zen - Logo">
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar producto">
+                <div class="nav-icons">
+                    <a href="carrito.html"><img src="./icono/carrito.png"  alt="Carrito" class="icon"></a>
+                    <a href="login.html"><img   src="./icono/usuario.png"  alt="Usuario" class="icon"></a>
+                    <a href="chat_bot.html"><img   src="./icono/chat-bot.png" alt="chatBot" class="icon"></a>
+                </div>
+            </div>
+        </div>
+        <div class="header-bottom">
+            <nav>
+                <ul>
+                    <li><a href="./index.html">Inicio</a></li>
+                    <li><a href="./catalogo.html">Catálogo</a></li>
+                    <li><a href="./configura.html">Configura</a></li>
+                    <li><a href="./sobre_nosotros.html">Acerca de</a></li>
+                    <li><a href="./contacto.html">Contacto</a></li>                    
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>Velas Aromáticas</h1>
+        <p>Experimente el lujo de las velas de cera naturales con fragancias</p>
+        <img src="./img/principal.png" alt="Aroma">        
+    </section>
+
+    <section class="collections">
+        <h2>De nuestra colección</h2>
+        <div class="products">
+            <div class="product">
+                <img src="./img/imagen01.png" alt="Lavanda">
+                <h3>Lavanda</h3>
+                <p>$249.00</p>
+            </div>
+            <div class="product">
+                <img src="./img/imagen02.png" alt="Lluvia de Otoño">
+                <h3>Lluvia de Otoño</h3>
+                <p>$209.00</p>
+            </div>
+            <div class="product">
+                <img src="./img/imagen03.png" alt="Vainilla Cálida">
+                <h3>Vainilla Cálida</h3>
+                <p>$319.00</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div>
+            <h3>Cera 100%</h3>
+            <p>Combustión limpia y respetuosa</p>
+        </div>
+        <div>
+            <h3>Elaborado a mano</h3>
+            <p>Elaborado con cuidado en lotes</p>
+        </div>
+        <div>
+            <h3>Larga duración</h3>
+            <p>Más de 8 horas de duración de la combustión</p>
+        </div>
+    </section>
+
+    <section class="newsletter">
+        <h2>Únase a nuestro boletín</h2>
+        <p>Subscríbete para recibir actualizaciones, acceso a ofertas</p>
+        <form>
+            <input type="email" placeholder="Introduce tu correo electrónico">
+            <button type="submit" class="btn">Subscribete</button>
+        </form>
+    </section>
+
+
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h3 id="sombraBlanca">Sobre nosotros</h3>
+                <ul>
+                    <li><a href="sobre_nosotros.html">Acerca de</a></li>
+                    <li><a href="mision_vision.html">Misión y Visión</a></li>
+                    <li><a href="valores.html">Valores</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3  id="sombraBlanca">Enlaces</h3>
+                <ul>
+                    <li><a href="catalogo.html">Catálogo</a></li>
+                    <li><a href="configura.html">Configura</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 id="sombraBlanca">Atención al cliente</h3>
+                <ul>
+                    <li><a href="terminos_condiciones.html">Terminos y Condiciones</a></li>
+                    <li><a href="politica_privacidad.html">Políticas de Privacidad</a></li>
+                    <li><a href="politica_envio.html">Política de Envíos</a></li>
+                    <li><a href="devoluciones.html">Política de Devoluciones</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 id="sombraBlanca">Contacto</h3>
+                <p class="contacto">Calle Principal No. 1234 <br>Tlajomulco de Zúñiga, Jal.</p>
+                <p class="contacto">contacto@velas_zen.com</p>
+                <p class="contacto">+52 (33) 1234-56789</p>
+                <p class="contacto">Lun-Vie: 9:00-18:00</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2024 VelasZen, todos los derechos reservados</p>
+        </div>
+    </footer>
+
+</body>
+</html>

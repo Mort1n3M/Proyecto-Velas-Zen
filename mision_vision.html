@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Misión / Visión - Velas Zen</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            display: flex;
+            min-height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+        .login-container {
+            display: flex;
+            width: 100%;
+        }
+
+        .brand-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            padding: 2rem;
+            background-image: url('./img/imagen18.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+
+        /* Add this new style for the overlay */
+        .brand-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.8); /* White with 80% opacity */
+            z-index: 1;
+        }
+
+        /* Adjust the logo and text to appear above the overlay */
+        .brand-section img,
+        .brand-section h1 {
+            color: rgb(186, 117, 117);
+            position: relative;
+            z-index: 2;
+        }
+
+
+        .form-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 2rem;
+            background-color: white;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #textoCentrado {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.5;
+            display: block;
+            text-align: justify;
+            padding-bottom: 2rem;
+        }
+
+        
+        .form-section h1, h2{
+            margin-bottom: 1.5rem;
+            color: rgb(186, 117, 117);
+        }
+        .form-section p {
+            font-style: italic;
+            margin-bottom: 1rem;
+            color: rgb(186, 117, 117);
+            margin-bottom: 4rem;
+            
+        }   
+
+        
+        .home-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 3;            
+        }
+
+        .home-icon img {
+            width: 30px;
+            height: 30px;
+            transition: transform 0.3s ease;                
+        }
+        
+        .home-icon img:hover {
+            transform: scale(1.4);
+        }
+
+
+@media screen and (max-width: 768px) {
+    .login-container {
+        flex-direction: column;
+    }
+
+    .brand-section {
+        min-height: 200px;
+    }
+
+    .form-section {
+        padding: 1rem;
+    }
+
+    #textoCentrado {
+        font-size: 0.9rem;
+        padding-bottom: 1.5rem;
+    }
+
+    .form-section h1 {
+        font-size: 1.5rem;
+    }
+
+    .form-section h2 {
+        font-size: 1.3rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .brand-section h1 {
+        font-size: 1.2rem;
+        text-align: center;
+    }
+
+    .brand-section img {
+        width: 80%;
+        max-width: 200px;
+    }
+}        
+
+    </style>
+</head>
+<body>
+    <a href="javascript: history.go(-1)" class="home-icon">
+        <img src="./icono/home.png" alt="Home">
+    </a>
+    <div class="login-container">
+        <div class="brand-section">
+            <img src="./icono/icono_VZ.png" alt="Velas Zen Logo">
+            <h1>Velas aromáticas artesanales</h1>
+        </div>
+        <div class="form-section">
+            <h1>Tus compras más fáciles</h1>
+            <h2>Misión</h2>
+            <span id="textoCentrado">           
+                En Velas Zen , nuestra misión es crear velas aromáticas artesanales de alta calidad que inspiren bienestar, armonía y relajación en cada hogar. Buscamos ofrecer productos hechos con ingredientes naturales y esencias cuidadosamente seleccionadas, combinando arte, tradición y conciencia ambiental en cada pieza que fabricamos. 
+                Queremos ser más que una marca de velas; aspiramos a ser un estilo de vida que invite a desconectarse del estrés diario y a reconectar con uno mismo. A través de cada vela, buscamos transmitir valores de paz interior, sostenibilidad y amor por los detalles, fomentando espacios positivos y momentos de auténtica tranquilidad. 
+            </span>
+            
+            <h2>Visión</h2>
+            <span id="textoCentrado">
+                Nos visualizamos como una marca líder en el mercado de velas aromáticas artesanales, reconocida por la excelencia de nuestros productos y nuestro compromiso con prácticas responsables y sostenibles. Aspiramos a expandir nuestra presencia no solo a nivel nacional, sino también en mercados internacionales donde el bienestar y la decoración consciente sean prioridades. 
+                Además, buscamos construir una comunidad alrededor del autocuidado y la armonía en el hogar, inspirando a más personas a incorporar rituales de relajación y conexión personal. En Velas Zen , imaginamos un futuro donde cada aroma tenga el poder de transformar ambientes y mejorar la calidad de vida de quienes lo experimentan. 
+            </span>
+
+        </div>
+    </div>
+</body>
+</html>

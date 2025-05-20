@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sobre Nosotros - Velas Zen</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            display: flex;
+            min-height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+        .login-container {
+            display: flex;
+            width: 100%;
+        }
+
+        .brand-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            padding: 2rem;
+        }
+
+        .brand-section img {
+            width: 200px;
+            height: 200px;
+            margin-bottom: 1rem;
+        }
+
+        .brand-section h1 {
+            color: #333;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .form-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 2rem;
+            background-color: white;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-section h1 {
+            font-size: 2rem;
+            margin-top: 2rem;
+            margin-bottom: 1.5rem;
+            color: rgb(186, 117, 117);
+        }
+        .form-section h2, h3 {
+            font-size: 1.5rem;
+            font-style: italic;
+            margin: 2rem 0 1rem;
+            color: rgb(186, 117, 117);
+        }
+
+        .form-section p {
+            color: rgb(186, 117, 117);
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            resize: vertical;
+        }      
+        
+        #textoCentrado {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.5;
+            display: block;
+            text-align: justify;
+            padding-bottom: 2rem;
+        }        
+
+        .login-button {
+            width: 100%;
+            padding: 0.8rem;
+            background-color: #6c5ce7;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-bottom: 1rem;
+        }
+
+        .login-button:hover {
+            background-color: #5b4bc4;
+        }
+
+        .forgot-password {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .forgot-password a {
+            color: #666;
+            text-decoration: none;
+        }
+
+        .social-login {
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .social-login img {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Add this new style */
+        .home-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 3;            
+        }
+
+        .home-icon img {
+            width: 30px;
+            height: 30px;
+        }
+
+
+        .google-login {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: white;
+            cursor: pointer;
+        }
+
+        .google-login img {
+            width: 20px;
+            height: 20px;
+        }
+        .location-map {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .brand-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            padding: 2rem;
+            background-image: url('./img/imagen03.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+
+        /* Add this new style for the overlay */
+        .brand-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.8); /* White with 80% opacity */
+            z-index: 1;
+        }
+
+        /* Adjust the logo and text to appear above the overlay */
+        .brand-section img,
+        .brand-section h1, p {
+            color: rgb(186, 117, 117);
+            position: relative;
+            z-index: 2;
+        }
+
+
+        
+        @media (max-width: 768px) {
+            .login-container {
+                flex-direction: column;
+            }
+
+            .brand-section {
+                padding: 1rem;
+                min-height: 200px;
+            }
+
+            .brand-section img {
+                width: 150px;
+                height: 150px;
+            }
+
+            .brand-section h1 {
+                font-size: 1.5rem;
+                text-align: center;
+            }
+
+            .form-section {
+                padding: 1rem;
+            }
+
+            .form-section h1 {
+                font-size: 1.8rem;
+                margin-top: 1rem;
+            }
+
+            .form-section h2, h3 {
+                font-size: 1.3rem;
+            }
+
+            #textoCentrado {
+                font-size: 0.9rem;
+                padding-bottom: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .brand-section img {
+                width: 120px;
+                height: 120px;
+            }
+
+            .brand-section h1 {
+                font-size: 1.2rem;
+            }
+
+            .form-section h1 {
+                font-size: 1.5rem;
+            }
+
+            .form-section h2, h3 {
+                font-size: 1.1rem;
+            }
+
+            .home-icon {
+                top: 10px;
+                right: 10px;
+            }
+
+            .home-icon img {
+                width: 25px;
+                height: 25px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <a href="javascript: history.go(-1)" class="home-icon">
+        <img src="./icono/home.png" alt="Home">
+    </a>
+    <div class="login-container">
+        
+        <div class="brand-section">
+            <img src="./icono/icono_VZ.png" alt="Velas Zen Logo">
+            <h1>Velas aromáticas artesanales</h1>
+            <p>Tus compras más fáciles</p>
+        </div>
+        <div class="form-section">
+            <h1>Sobre Nosotros</h1>
+            <h2>Nuestra Historia</h2>
+            <span id="textoCentrado">
+                Somos una historia de emprendimiento y pasión que comenzó en el año 2019 en el municipio de Tlajomulco, Jalisco. Lo que inició como una idea pequeña, casi tímida, se convirtió poco tiempo después en la fundación de nuestro primer taller dedicado a la creación artesanal de Velas Zen. Este proyecto nació de la necesidad de crear un espacio donde la tranquilidad, la aromaterapia y el arte se fusionaran para ofrecer productos únicos que ayudaran a las personas a encontrar paz interior en su vida diaria.</span>           
+            </span>
+            <span id="textoCentrado">
+                Somos el reflejo del esfuerzo constante y el amor por lo hecho a mano. A lo largo de los años, hemos ido creciendo poco a poco, mejorando nuestras técnicas, ampliando nuestra gama de fragancias y perfeccionando cada detalle de nuestras velas aromáticas. Nuestro taller se ha convertido no solo en un lugar de producción, sino también en un espacio de inspiración y conexión con quienes buscan bienestar a través de los sentidos. Cada vela que creamos lleva consigo la esencia de nuestro compromiso con la calidad y la autenticidad.
+            </span>
+            <span id="textoCentrado">
+                Hoy un sueño en marcha, con la ilusión de seguir expandiéndonos más allá de nuestras fronteras locales. El próximo paso es llevar nuestras Velas Zen a otros estados de México, compartiendo con más personas la calma y el aroma que solo lo artesanal puede transmitir. Soñamos con construir una red de talleres que mantengan viva la esencia de nuestra filosofía original, pero con alcance nacional, sin perder nunca la conexión humana y natural que nos define desde aquel inicio en Tlajomulco.
+            </span>
+
+            <h3>Nuestro equipo</h3>
+            <div>
+                <img src="./img/nuestro_equipo.png" alt="Ubicación Velas Zen" class="location-map">
+            </div>            
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacidad - Velas Zen</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            display: flex;
+            min-height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+        .login-container {
+            display: flex;
+            width: 100%;
+        }
+
+        .brand-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            padding: 2rem;
+            background-image: url('./img/imagen18.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+
+        /* Add this new style for the overlay */
+        .brand-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.8); /* White with 80% opacity */
+            z-index: 1;
+        }
+
+        /* Adjust the logo and text to appear above the overlay */
+        .brand-section img,
+        .brand-section h1 {
+            color: rgb(186, 117, 117);
+            position: relative;
+            z-index: 2;
+        }
+
+
+        .form-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 2rem;
+            background-color: white;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #textoCentrado {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.5;
+            display: block;
+            text-align: justify;
+            padding-bottom: 2rem;
+        }
+
+        
+        .form-section h2 {
+            margin-bottom: 1.5rem;
+            color: rgb(186, 117, 117);
+        }
+        .form-section p {
+            color: rgb(186, 117, 117);
+            margin-bottom: 1rem;
+        }   
+
+        
+        .home-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 3;  
+        }
+
+        .home-icon img {
+            width: 30px;
+            height: 30px;
+            transition: transform 0.3s ease; 
+        }
+        .home-icon img:hover {
+            transform: scale(1.4);
+        }
+
+
+
+@media screen and (max-width: 768px) {
+    .login-container {
+        flex-direction: column;
+    }
+
+    .brand-section {
+        min-height: 200px;
+    }
+
+    .form-section {
+        padding: 1rem;
+    }
+
+    #textoCentrado {
+        font-size: 0.9rem;
+        padding-bottom: 1.5rem;
+    }
+
+    .form-section h1 {
+        font-size: 1.5rem;
+    }
+
+    .form-section h2 {
+        font-size: 1.3rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .brand-section h1 {
+        font-size: 1.2rem;
+        text-align: center;
+    }
+
+    .brand-section img {
+        width: 80%;
+        max-width: 200px;
+    }
+}        
+
+    </style>
+</head>
+<body>
+    <a href="javascript: history.go(-1)" class="home-icon">
+        <img src="./icono/home.png" alt="Home">
+    </a>
+    <div class="login-container">
+        <div class="brand-section">
+            <img src="./icono/icono_VZ.png" alt="Velas Zen Logo">
+            <h1>Velas aromáticas artesanales</h1>
+        </div>
+        <div class="form-section">
+            <h2>Políticas de Privacidad</h2>
+            <p>Tus compras más fáciles</p>
+            <span id="textoCentrado">           
+                En Velas Zen - Velas Aromáticas Artesanales , somos conscientes de la importancia que nuestros clientes otorgan a la privacidad y protección de sus datos personales. Por ello, nos comprometemos a cumplir con los principios establecidos en la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP) y su reglamentación, así como con la Norma Oficial Mexicana NOM-035-STPS-2018, aplicable en materia de entornos laborales saludables, incluyendo el tratamiento responsable de los datos personales de nuestros empleados, proveedores y colaboradores.
+            </span>
+            <span id="textoCentrado">
+                Recopilamos únicamente los datos personales necesarios para brindar nuestros servicios, gestionar pedidos, realizar envíos, procesar pagos y ofrecer soporte al cliente. Los datos obtenidos son tratados bajo estrictas medidas de seguridad administrativas, técnicas y físicas, con el fin de evitar su pérdida, mal uso o alteración no autorizada. El acceso a esta información se limita al personal autorizado cuyo conocimiento sea necesario para el cumplimiento de sus funciones. Además, informamos a todos nuestros colaboradores sobre las políticas internas de manejo de datos, en concordancia con lo dispuesto por la NOM-035-STPS-2018, asegurando un entorno organizacional seguro y respetuoso de la privacidad.            
+            </span>
+
+            <span id="textoCentrado">
+                Los datos personales proporcionados por nuestros clientes no serán transferidos a terceros sin el consentimiento previo, salvo las excepciones previstas por la ley. En todo momento, los titulares podrán ejercer sus derechos ARCO (Acceso, Rectificación, Cancelación u Oposición), mediante solicitud escrita dirigida a nuestro Departamento de Privacidad. Asimismo, contamos con un Aviso de Privacidad Integral y uno Simplificado disponibles en nuestra página web y puntos de venta, donde se detalla el tipo de datos recabados, finalidades del tratamiento, opciones y mecanismos para limitar su uso, así como los procedimientos para presentar quejas o denuncias ante el Instituto Nacional de Transparencia, Acceso a la Información y Protección de Datos Personales (INAI).                
+            </span>
+
+        </div>
+    </div>
+</body>
+</html>
